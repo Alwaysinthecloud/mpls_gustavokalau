@@ -1,0 +1,6 @@
+!NO LABORATÓRIO COMEÇAMOS DESABILITANDO A CONFIGURAÇÃO DE OSPF JÁ EXISTENTE
+enable 
+conf t
+no router ospf 10 
+end 
+wr
