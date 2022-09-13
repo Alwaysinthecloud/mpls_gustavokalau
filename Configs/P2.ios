@@ -4,3 +4,18 @@ conf t
 no router ospf 10 
 end 
 wr
+
+! HABILITANDO O OSPF E MPLS NO BACKBONE 
+conf t
+mpls ldp router-id loopback 0
+interface range e0/0-2
+ ip ospf network point-to-point
+ exit
+router ospf 10
+ mpls ldp autoconfig
+ network 3.3.3.3 0.0.0.0 area 0
+ network 10.21.0.2 0.0.0.0 area 0
+ network 10.22.0.2 0.0.0.0 area 0
+ network 10.23.0.2 0.0.0.0 area 0
+end
+wr
